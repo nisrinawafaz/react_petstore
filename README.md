@@ -31,7 +31,7 @@ Konsep memanggil API tetap sama — keduanya menggunakan `GET`, `POST`, `PUT`, `
 
 3. **Routing**
 
-Keduanya punya sistem routing berbasis path mendukung navigasi antar halaman (single-page application). Angular pakai `@angular/router`, React pakai `react-router-dom`. Struktur route yang kita buat (`/pets`, `/pets/:id`, `/users`, dll) bisa diaplikasikan langsung di React.
+Keduanya punya sistem routing berbasis path mendukung navigasi antar halaman (single-page application). Angular pakai `@angular/router`, React pakai `react-router-dom`.
 
 ---
 
@@ -39,8 +39,8 @@ Keduanya punya sistem routing berbasis path mendukung navigasi antar halaman (si
 
 1. **Framework vs Library**
 
-Angular : Full framework sudah include router, HTTP client, form handling, DI.
-React : Library UI hanya handle rendering, perlu library tambahan untuk fitur lain
+- Angular : Full framework sudah include router, HTTP client, form handling, DI.
+- React : Library UI hanya handle rendering, perlu library tambahan untuk fitur lain
 
 2. **Template vs JSX**
 
@@ -48,11 +48,13 @@ Angular menggunakan HTML template terpisah dengan directive khusus. React menggu
 
 3. **Two-way Binding vs One-way Data Flow**
 
-Angular mendukung two-way binding dengan `[(ngModel)]` — perubahan di UI langsung update data, dan sebaliknya. React menggunakan one-way data flow, data mengalir dari parent ke child, dan event handler digunakan untuk update state.
+- Angular mendukung two-way binding dengan `[(ngModel)]` : perubahan di UI langsung update data, dan sebaliknya.
+- React menggunakan one-way data flow, data mengalir dari parent ke child, dan event handler digunakan untuk update state.
 
 4. **Dependency Injection**
 
-Angular punya sistem DI built-in — service di-inject lewat constructor. React tidak punya DI, sehingga menggunakan `Context API` atau state management library seperti `Redux` atau `Zustand`.
+- Angular punya sistem DI built-in : service di-inject lewat constructor.
+- React tidak punya DI, sehingga menggunakan `Context API` atau state management library seperti `Redux` atau `Zustand`.
 
 5. **JS vs TS**
 
@@ -106,10 +108,10 @@ Berikut beberapa tips agar proses migrasi lebih mudah:
 
 4. **Gunakan Library yang Setara**
 
-   Form: gunakan react-hook-form
-   HTTP: gunakan axios atau fetch
-   validasi : gunakan zod
-   UI: gunakan Material UI (setara Angular Material)
+- Form: gunakan react-hook-form
+- HTTP: gunakan axios atau fetch
+- validasi : gunakan zod
+- UI: gunakan Material UI (setara Angular Material)
 
 5. **Struktur Folder**
 
