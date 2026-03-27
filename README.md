@@ -1,73 +1,117 @@
-# React + TypeScript + Vite
+## Pengertian React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React adalah library JavaScript yang digunakan untuk membangun antarmuka pengguna (user interface) berbasis komponen. React dikembangkan oleh Meta dan banyak digunakan untuk membuat aplikasi web modern, khususnya single-page application (SPA).
 
-Currently, two official plugins are available:
+## Kelebihan React dibandingkan dengan Angular
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Lebih Fleksibel
+- Lebih Ringan
+- Learning Curve Lebih Rendah
+- Tidak banyak boilerplate.
+- Lebih Mudah Integrasi
 
-## React Compiler
+## Kekurangan React
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Tidak All-in-One
+- Tidak ada standar baku sehingga struktur project bisa berbeda-beda.
+- Dependency Lebih Banyak
+- Karena fleksibel tiap developer bisa punya pendekatan berbeda.
 
-## Expanding the ESLint configuration
+## Persamaan Angular dan React
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Meskipun memiliki pendekatan yang berbeda, React dan Angular memiliki beberapa konsep yang serupa:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1. ## Component-Based Architecture
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Keduanya membangun UI dari komponen-komponen kecil yang bisa dipakai ulang.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2. ## HTTP / API Calls
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Konsep memanggil API tetap sama — keduanya menggunakan `GET`, `POST`, `PUT`, `DELETE`. Yang berbeda hanya library-nya: Angular pakai `HttpClient`, React biasanya pakai `fetch` atau `axios`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+3. ## Routing
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Keduanya punya sistem routing berbasis path mendukung navigasi antar halaman (single-page application). Angular pakai `@angular/router`, React pakai `react-router-dom`. Struktur route yang kita buat (`/pets`, `/pets/:id`, `/users`, dll) bisa diaplikasikan langsung di React.
+
+---
+
+## Perbedaan Angular dan React
+
+1. ## Framework vs Library
+
+Angular : Full framework sudah include router, HTTP client, form handling, DI.
+React : Library UI hanya handle rendering, perlu library tambahan untuk fitur lain
+
+2. ## Template vs JSX
+
+Angular menggunakan HTML template terpisah dengan directive khusus. React menggunakan JSX yaitu HTML yang ditulis langsung di dalam JavaScript/TypeScript.
+
+3. ## Two-way Binding vs One-way Data Flow
+
+Angular mendukung two-way binding dengan `[(ngModel)]` — perubahan di UI langsung update data, dan sebaliknya. React menggunakan one-way data flow, data mengalir dari parent ke child, dan event handler digunakan untuk update state.
+
+4. ## Dependency Injection
+
+Angular punya sistem DI built-in — service di-inject lewat constructor. React tidak punya DI, sehingga menggunakan `Context API` atau state management library seperti `Redux` atau `Zustand`.
+
+5. ## JS vs TS
+
+React memiliki kebebasan memilih antara JS atau TS, sedangkan angular wajib menggunakan TS.
+
+---
+
+## Fitur yang Mirip, Hanya Beda Nama
+
+| Konsep                     | Angular                            | React                                        |
+| -------------------------- | ---------------------------------- | -------------------------------------------- |
+| **Komponen**               | `@Component` + class               | Function component                           |
+| **State lokal**            | Property di class                  | `useState()`                                 |
+| **Data Binding**           | Input / Output                     | Props & State                                |
+| **Lifecycle init**         | `ngOnInit()`                       | `useEffect(() => {}, [])`                    |
+| **Kondisional render**     | `*ngIf`                            | `{condition && <Component />}`               |
+| **Loop render**            | `*ngFor`                           | `.map()`                                     |
+| **Styling**                | `.component.css`                   | `.module.css` / Tailwind / styled-components |
+| **Routing**                | `RouterModule` + `app.routes.ts`   | `react-router-dom`                           |
+| **Route params**           | `ActivatedRoute.snapshot.paramMap` | `useParams()`                                |
+| **HTTP**                   | `HttpClient`                       | `axios / fetch` / `axios`                    |
+| **Guard (proteksi route)** | `CanActivateFn`                    | Route wrapper component                      |
+| **Interceptor**            | `HttpInterceptorFn`                | `axios interceptors` / middleware            |
+| **Form validation**        | `Validators` + Zod                 | `React Hook Form` + Zod (`zodResolver`)      |
+| **UI Library**             | Angular Material                   | MUI (Material UI)                            |
+| **Service**                | `@Injectable` class                | Custom hook / Context                        |
+| **Form Handling**          | Reactive Forms / Template Forms    | Controlled / React Hook Form                 |
+
+---
+
+## Tips Migrasi Angular ke React
+
+Berikut beberapa tips agar proses migrasi lebih mudah:
+
+1. ## Ubah Mindset
+
+   Angular: framework yang sudah mengatur semuanya
+   React: developer memilih dan mengatur sendiri tools yang digunakan
+
+2. ## Mapping Konsep
+   Pahami padanan konsep Angular ke React:
+
+- Component → Component
+- Service → Custom Hook / utility function
+- Lifecycle (ngOnInit) → useEffect
+- Data binding → useState
+- Routing → React Router
+
+3. ## Gunakan Pendekatan Bertahap
+
+   Memulai dari komponen kecil, jangan langsung migrasi seluruh aplikasi. Bisa dilakukan mulai dari component reusable, per halaman, atau per fitur.
+
+4. ## Gunakan Library yang Setara
+
+   Form: gunakan react-hook-form
+   HTTP: gunakan axios atau fetch
+   validasi : gunakan zod
+   UI: gunakan Material UI (setara Angular Material)
+
+5. ## Struktur Folder
+
+   Struktur folder dapat dibuat mirip dengan yang ada di project angular karena react bersifat fleksibel.
