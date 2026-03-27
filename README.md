@@ -21,15 +21,15 @@ React adalah library JavaScript yang digunakan untuk membangun antarmuka penggun
 
 Meskipun memiliki pendekatan yang berbeda, React dan Angular memiliki beberapa konsep yang serupa:
 
-1. ## Component-Based Architecture
+1. **Component-Based Architecture**
 
 Keduanya membangun UI dari komponen-komponen kecil yang bisa dipakai ulang.
 
-2. ## HTTP / API Calls
+2. **HTTP / API Calls**
 
 Konsep memanggil API tetap sama — keduanya menggunakan `GET`, `POST`, `PUT`, `DELETE`. Yang berbeda hanya library-nya: Angular pakai `HttpClient`, React biasanya pakai `fetch` atau `axios`.
 
-3. ## Routing
+3. **Routing**
 
 Keduanya punya sistem routing berbasis path mendukung navigasi antar halaman (single-page application). Angular pakai `@angular/router`, React pakai `react-router-dom`. Struktur route yang kita buat (`/pets`, `/pets/:id`, `/users`, dll) bisa diaplikasikan langsung di React.
 
@@ -37,24 +37,24 @@ Keduanya punya sistem routing berbasis path mendukung navigasi antar halaman (si
 
 ## Perbedaan Angular dan React
 
-1. ## Framework vs Library
+1. **Framework vs Library**
 
 Angular : Full framework sudah include router, HTTP client, form handling, DI.
 React : Library UI hanya handle rendering, perlu library tambahan untuk fitur lain
 
-2. ## Template vs JSX
+2. **Template vs JSX**
 
 Angular menggunakan HTML template terpisah dengan directive khusus. React menggunakan JSX yaitu HTML yang ditulis langsung di dalam JavaScript/TypeScript.
 
-3. ## Two-way Binding vs One-way Data Flow
+3. **Two-way Binding vs One-way Data Flow**
 
 Angular mendukung two-way binding dengan `[(ngModel)]` — perubahan di UI langsung update data, dan sebaliknya. React menggunakan one-way data flow, data mengalir dari parent ke child, dan event handler digunakan untuk update state.
 
-4. ## Dependency Injection
+4. **Dependency Injection**
 
 Angular punya sistem DI built-in — service di-inject lewat constructor. React tidak punya DI, sehingga menggunakan `Context API` atau state management library seperti `Redux` atau `Zustand`.
 
-5. ## JS vs TS
+5. **JS vs TS**
 
 React memiliki kebebasan memilih antara JS atau TS, sedangkan angular wajib menggunakan TS.
 
@@ -87,12 +87,15 @@ React memiliki kebebasan memilih antara JS atau TS, sedangkan angular wajib meng
 
 Berikut beberapa tips agar proses migrasi lebih mudah:
 
-1. ## Ubah Mindset
+1. **Menggunakan TS**
 
-   Angular: framework yang sudah mengatur semuanya
-   React: developer memilih dan mengatur sendiri tools yang digunakan
+   Karena Angular wajib menggunakan TS, maka pada React juga menggunakan TS agar lebih mudah dalam melakukan migrasi
 
-2. ## Mapping Konsep
+2. **Gunakan Pendekatan Bertahap**
+
+   Memulai dari komponen kecil, jangan langsung migrasi seluruh aplikasi. Bisa dilakukan mulai dari component reusable, per halaman, atau per fitur.
+
+3. **Mapping Konsep**
    Pahami padanan konsep Angular ke React:
 
 - Component → Component
@@ -101,17 +104,17 @@ Berikut beberapa tips agar proses migrasi lebih mudah:
 - Data binding → useState
 - Routing → React Router
 
-3. ## Gunakan Pendekatan Bertahap
-
-   Memulai dari komponen kecil, jangan langsung migrasi seluruh aplikasi. Bisa dilakukan mulai dari component reusable, per halaman, atau per fitur.
-
-4. ## Gunakan Library yang Setara
+4. **Gunakan Library yang Setara**
 
    Form: gunakan react-hook-form
    HTTP: gunakan axios atau fetch
    validasi : gunakan zod
    UI: gunakan Material UI (setara Angular Material)
 
-5. ## Struktur Folder
+5. **Struktur Folder**
 
    Struktur folder dapat dibuat mirip dengan yang ada di project angular karena react bersifat fleksibel.
+
+---
+
+Link Demo : https://drive.google.com/drive/folders/1iz6SfgoSClv9R7QoQjzxhewBEuL4-I1T?usp=sharing
